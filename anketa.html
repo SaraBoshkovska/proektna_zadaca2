@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survey</title>
+    <link rel="stylesheet" type="text/css" href="css/stylesp3.css">
+  </head>
+  <body>
+     <div id="surveyContainer">
+      <form id="surveyForm">
+        <div>
+          <label for="userinfo">Enter your information:</label>
+          <input type="email" id="userinfo" name="userinfo" placeholder="E-mail" required>
+          <div>
+            <label for="categorySelect">Choose a category:</label>
+            <select id="categorySelect" name="category" required>
+              <option value="">Please choose an option</option>
+              <option value="category1">Straw Hats Figures</option>
+              <option value="category2">Wanted Posters</option>
+              <option value="category3">MUGiwara</option>
+            </select>
+          </div>
+          <div id="productOptions" style="display:none;">
+          </div>
+          <div>
+            <label for="impressions">Your impressions of the product:</label>
+            <textarea id="impressions" placeholder="Enter your impressions" required></textarea>
+          </div>
+           <button type="submit">Submit Survey</button>
+          </form>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <script>
+       $(document).ready(function(){
+          $('#categorySelect').change(function(){
+              var categorySelect=$(this).val();
+              var productoptions=$('#productOptions');
+              productoptions.empty();
+              if(categorySelect)
+              {
+                var products=getProducts(categorySelect);
+                products.forEach(function(product) {
+                    var label = $('<label></label>').text(product.name);
+                    var checkbox = $('<input>').attr({ type: 'checkbox', name: 'products', value: product.id });
+
+                    label.append(checkbox);
+                    productoptions.append(label).append('<br>');
+                });
+
+                productoptions.show();
+              } else {
+                productoptions.hide();
+                
+                }
+              
+          });
+               $('#surveyForm').submit(function (event) {
+            event.preventDefault();
+            $(this).hide();
+            alert('Thank you for completing the survey!');
+        });
+        });
+        function getProducts(category) {
+        var Products = [
+            { id: 'p1', name: 'Luffy' },
+            { id: 'p2', name: 'Zoro' },
+            { id: 'p3', name: 'Nami' },
+            { id: 'p4', name: 'Usopp' },
+            { id: 'p5', name: 'Sanji' },
+            { id: 'p6', name: 'Chopper' },
+            { id: 'p7', name: 'Robin' },
+            { id: 'p8', name: 'Franky' },
+            { id: 'p9', name: 'Brook' },
+            { id: 'p10', name: 'Jinbe' }
+        ];
+        return Products;
+    }
+        </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+body{
+    background-image: url('/Users/sarab/Desktop/proektna1/images/backg2.jfif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: white;
+    min-height: 100vh;
+    overflow-y: scroll;
+}
+#surveyContainer {
+  max-width: 600px; 
+  margin: 150px auto; 
+  padding: 20px;
+  border: 10px solid red; 
+  border-radius: 5px; 
+  background-color: goldenrod; 
+}
+
+#surveyForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#surveyForm label,
+#surveyForm input,
+#surveyForm select,
+#surveyForm textarea,
+#surveyForm button {
+  width: 100%; 
+  margin-bottom: 10px; 
+}
+
+#surveyForm button {
+  background-color:black; 
+  color: whitesmoke; 
+  padding: 10px;
+  cursor: pointer;
+}
+
+
+#surveyForm button:hover {
+  background-color: rgba(78, 73, 73, 0.26);
+}
+
+#productOptions label {
+  display: block;
+  align-items: center;
+}
+
+#productOptions input[type="checkbox"] {
+  margin-right: 5px;
+}
